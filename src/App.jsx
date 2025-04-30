@@ -40,6 +40,9 @@ function App() {
             <div>Quiz App</div>
               <div>
                 <div>{questions[0].questionText}</div>
+                {questions[0].answerOptions.map((option, index)=>(
+                  <button>{option.answerText}</button>
+                ))}
               </div>
           </div>
         </div>
