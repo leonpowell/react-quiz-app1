@@ -73,14 +73,17 @@ const nextQuestion = () => {
                 <div>{questions[currentQuestion].questionText}</div>
                 {questions[currentQuestion].answerOptions.map((option, index)=>(
                   <button 
-                    onClick={() => handleAnswerOption(index, option.isCorrect)}
+                    onClick={() => {
+                      handleAnswerOption(index, option.isCorrect)
+                      nextQuestion()}
+                    }
                     className="block w-full p-2 mt-2 rounded border">
                     {option.answerText}
                   </button>
                 ))}
-                <button className={`${answered ? "bg-green-500" : "bg-red-300"} block w-full bg-green-500 text-white p-2 rounded`}
+                {/* <button className={`${answered ? "bg-green-500" : "bg-red-300"} block w-full bg-green-500 text-white p-2 rounded`}
                 disabled = {answered ? "" : "disabled"}
-                onClick={nextQuestion}>Next Question</button>
+                >Next Question</button> */}
                 <p className="text-center text-gray-400 text-sm">Questions {currentQuestion + 1} of {questions.length}</p>
               </div>
               }
