@@ -36,6 +36,17 @@ function App() {
   
 const [currentQuestion, setCurrentQuestion] = useState(0);
 const [answered, setAnswered] = useState(false)
+const [selectedAnswer, setSelectedAnswer] = useState(null)
+const [score, setScore] = useState(0)
+
+const handleAnswerOption = (index, isCorrect) =>{
+  setAnswered(true)
+  setSelectedAnswer(index)
+  if(isCorrect){
+    setScore(score + 1)
+  }
+
+}
 
 const nextQuestion = () => {
     setCurrentQuestion(currentQuestion + 1)
@@ -48,7 +59,17 @@ const nextQuestion = () => {
               <div>
                 <div>{questions[currentQuestion].questionText}</div>
                 {questions[currentQuestion].answerOptions.map((option, index)=>(
-                  <button className='block w-full p-2 mt-2 rounded border'>
+                  <button 
+                    onClick={() => handleAnswerOption(index, option.isCorrect)}
+                    className={`block w-full p-2 mt-2 rounded border ${
+                        answered ?
+                          option.isCorrect ?
+                          "bg-green-200"
+                          : selectedAnswer === index ?
+                          "bg-red-200"
+                          : ""
+                        :""
+                    }`}>
                     {option.answerText}
                   </button>
                 ))}
