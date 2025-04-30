@@ -35,6 +35,7 @@ const questions =[
 function App() {
   
 const [currentQuestion, setCurrentQuestion] = useState(0);
+const [answered, setAnswered] = useState(false)
 
 const nextQuestion = () => {
     setCurrentQuestion(currentQuestion + 1)
@@ -51,7 +52,8 @@ const nextQuestion = () => {
                     {option.answerText}
                   </button>
                 ))}
-                <button className='block w-full bg-green-500 text-white p-2 rounded'
+                <button className={`${answered ? "bg-green-500" : "bg-red-300"} block w-full bg-green-500 text-white p-2 rounded`}
+                disabled = {answered ? "" : "disabled"}
                 onClick={nextQuestion}>Next Question</button>
                 <p className="text-center text-gray-400 text-sm">Questions {currentQuestion + 1} of {questions.length}</p>
               </div>
