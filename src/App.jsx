@@ -33,7 +33,13 @@ const questions =[
 
 
 function App() {
-   const [currentQuestion, setCurrentQuestion] = useState(0)
+  
+const [currentQuestion, setCurrentQuestion] = useState(0);
+
+const nextQuestion = () => {
+    setCurrentQuestion(currentQuestion + 1)
+}
+
   return (
         <div className="flex justify-center items-center h-screen">
           <div className='w-full max-w-lg bg-white p-5 rounded shadow-lg'>
@@ -45,7 +51,8 @@ function App() {
                     {option.answerText}
                   </button>
                 ))}
-                <button className='block w-full bg-green-500 text-white p-2 rounded'>Next Question</button>
+                <button className='block w-full bg-green-500 text-white p-2 rounded'
+                onClick={nextQuestion}>Next Question</button>
                 <p className="text-center text-gray-400 text-sm">Questions {currentQuestion + 1} of {questions.length}</p>
               </div>
           </div>
