@@ -35,7 +35,7 @@ const questions =[
 function App() {
 
   return (
-        <div className="App">
+        <div className="flex justify-center items-center h-screen">
           <div>
             <div>Quiz App</div>
               <div>
