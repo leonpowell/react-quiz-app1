@@ -44,7 +44,9 @@ const handleAnswerOption = (index, isCorrect) =>{
   setAnswered(true)
   setSelectedAnswer(index)
   if(isCorrect){
-    setScore(score + 1)
+    setScore(score + 2)
+  }else{
+    setScore(score - 1)
   }
 
 }
