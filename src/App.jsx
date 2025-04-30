@@ -67,24 +67,14 @@ const nextQuestion = () => {
           <div className='w-full max-w-lg bg-white p-5 rounded shadow-lg'>
             <div className='p-2 border text-center font-bold mb-2 text-xl'>Quiz App</div>
               {showScore ? <div>
-                You scored {score} of {questions.length}
+                You scored {score}
                 </div> :
-              
-                
               <div>
                 <div>{questions[currentQuestion].questionText}</div>
                 {questions[currentQuestion].answerOptions.map((option, index)=>(
                   <button 
                     onClick={() => handleAnswerOption(index, option.isCorrect)}
-                    className={`block w-full p-2 mt-2 rounded border ${
-                        answered ?
-                          option.isCorrect ?
-                          "bg-green-200"
-                          : selectedAnswer === index ?
-                          "bg-red-200"
-                          : ""
-                        :""
-                    }`}>
+                    className="block w-full p-2 mt-2 rounded border">
                     {option.answerText}
                   </button>
                 ))}
